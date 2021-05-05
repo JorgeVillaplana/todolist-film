@@ -9,10 +9,16 @@ export default function AddMovies({addNewMovie}){
         addNewMovie(myMovie);
         inputMovie.current.value = null;
     };
+    
+    const keypress = (event)=> {
+        if(event.key === "Enter"){
+            addMovie();
+        }
+    };
 
     return (
             <div className="input-group mt-3">
-                <input ref={inputMovie} type="text" className="form-control" placeholder="Nueva peli"/>
+                <input ref={inputMovie} type="text" className="form-control" placeholder="Nueva peli" onKeyPress={keypress}/>
                 <button onClick={addMovie} className="btn btn-outline-secondary" type="button">
                     Añadir peli
                 </button>
