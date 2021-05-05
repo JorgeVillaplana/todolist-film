@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Movies from './Movies';
+import Navbar from './Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <div className="jumbotron">
+        <Navbar/>
+        </div>
+        <div className="container mt-4">
+          <Switch>
+            <Route path="/terms">
+              <h1>Términos</h1>
+            </Route>
+            <Route path="/">
+              <Movies />
+            </Route>
+          </Switch>
+          </div>
+
+      </Router>
   );
 }
 
